@@ -6,32 +6,31 @@ namespace Services.Services
 {
     public class TrainerService : ITrainerService
     {
-        public IPokedexRepository _respository { get; set; }
+        public IPokedexRepository Repository { get; set; }
 
-        public TrainerService(IPokedexRepository respository)
+        public TrainerService(IPokedexRepository repository)
         {
-            _respository = respository;
+            Repository = repository;
         }
 
         public async Task<bool> Create(Trainer trainer)
         {
-
-            return await _respository.Create(trainer);
+            return await Repository.Create(trainer);
         }
 
         public async Task<Trainer> Find(string name)
         {
-            return await _respository.Find(name);
+            return await Repository.Find(name);
         }
 
         public async Task<Trainer> Get(int id)
         {
-            return await _respository.Get(id);
+            return await Repository.Get(id);
         }
 
         public async Task<bool> Update(int id, Trainer trainer)
         {
-            return await _respository.Update(id, trainer);
+            return await Repository.Update(id, trainer);
         }
     }
 }

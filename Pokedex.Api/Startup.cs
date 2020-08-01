@@ -4,7 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Pokedex.Api.Data;
+using Pokedex.Data;
+using Pokedex.Data.Data;
 using Services.Services;
 
 namespace Pokedex.Api
@@ -22,11 +23,11 @@ namespace Pokedex.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<ITrainerService, TrainerService>();
             services.AddScoped<IPokedexRepository, PokedexRepository>();
-            services.AddScoped<ITrainerService, TrainerService>();            
-            services.AddDbContext<PokedexApiContext>(opt => opt.UseInMemoryDatabase("InMemomryTest"));
+            services.AddDbContext<PokedexApiContext>(opt => opt.UseInMemoryDatabase("InMemomryTest"));                
             services.AddResponseCaching();            
-            services.AddCors();            
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
