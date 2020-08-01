@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Pokedex.Data.Model;
 
-namespace Pokedex.Api.Data
+namespace Pokedex.Data
 {
     public class PokedexApiContext : DbContext
     {

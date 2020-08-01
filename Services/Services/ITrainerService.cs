@@ -1,9 +1,9 @@
 ﻿using Pokedex.Data.Model;
 using System.Threading.Tasks;
 
-namespace Pokedex.Api.Data
+namespace Services.Services
 {
-    public interface IPokedexRepository
+    public interface ITrainerService
     {
         Task<bool> Create(Trainer trainer);
         Task<Trainer> Find(string name);

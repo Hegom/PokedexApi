@@ -1,7 +1,7 @@
 ﻿using Pokedex.Data.Model;
 using System.Threading.Tasks;
 
-namespace Pokedex.Api.Data
+namespace Pokedex.Data.Data
 {
     public interface IPokedexRepository
     {
