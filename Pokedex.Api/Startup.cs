@@ -29,7 +29,8 @@ namespace Pokedex.Api
             services.AddControllers();
             services.AddScoped<IPokedexRepository, PokedexRepository>();
             services.AddDbContext<PokedexApiContext>(opt => opt.UseInMemoryDatabase("InMemomryTest"));
-            services.AddResponseCaching();
+            services.AddResponseCaching();            
+            services.AddCors();            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +40,14 @@ namespace Pokedex.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(x =>
+            {
+                x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            });
 
             app.UseRouting();
 
